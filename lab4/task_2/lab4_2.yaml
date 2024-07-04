@@ -1,0 +1,17 @@
+saturday:
+  first-pair:
+    name: web-programming
+    week: odd
+    time: 13:30-15:00
+    room: 2334
+    adress: Kronversky pr. h.49 let.A
+    professor: Makarevich Roman Dmitrievich
+    format: full-time/distance
+  second-pair:
+    name: physics
+    week: odd
+    time: 15:20-16:50
+    room: 1410
+    adress: Kronversky pr. h.49 let.A
+    professor: Unnamed
+    format: full-time/distance

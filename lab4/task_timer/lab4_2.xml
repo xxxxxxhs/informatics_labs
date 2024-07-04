@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saturday>
+	<first-pair>
+		<name>web-programming</name>
+		<week>odd</week>
+		<time>13:30-15:00</time>
+		<room>2334</room>
+		<adress>Kronversky pr. h.49 let.A</adress>
+		<professor>Makarevich Roman Dmitrievich</professor>
+		<format>full-time/distance</format>
+	</first-pair>
+	<second-pair>
+		<name>physics</name>
+		<week>odd</week>
+		<time>15:20-16:50</time>
+		<room>1410</room>
+		<adress>Kronversky pr. h.49 let.A</adress>
+		<professor>Unnamed</professor>
+		<format>full-time/distance</format>
+	</second-pair>
+</saturday>

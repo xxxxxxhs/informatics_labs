@@ -1,0 +1,146 @@
+\documentclass[12pt,twoside]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[T2A]{fontenc}
+\usepackage{multicol} % for adding second text column
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{array} % for tables
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{fancyhdr} % for moving page number
+\usepackage{tikz} % to draw smth like graphics or figures
+
+\begin{document}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyfoot[LO,RE]{\thepage}
+\begin{figure}
+    \includegraphics[width=1\linewidth]{main_task/pic_title.png}
+\end{figure}
+\begin{flushright}
+    \Large{\textsc{\textbf{Р. П. Шейнцвит}}}
+\end{flushright}
+
+\begin{multicols}{2}
+Рассмотрим задачу:
+
+\textit{На складе имеются предметы (каждый по одному), вес и стоимость которых указаны в таблице.}
+\\
+
+\noindent
+\begin{tabular}{c|c|c}
+    \hline
+    Порядковый&Вес в цент-&Стоимость\\
+    номер&нерах&(в рублях)\\
+    \hline
+    1&11&120\\
+    2&7&140\\
+    3&6&60\\
+    4&5&80\\
+    5&12&160\\
+    6&9&110\\
+    \hline
+    Всего:&50&670
+\end{tabular}
+\\
+
+\textit{Грузоподъемность автомашины — 3200 кг. Требуется так загрузить автомашину, чтобы общая стоимость взятых предметов была как можно большей.}
+
+Очевидно, выгоднее брать предметы, имеющие при малом весе большую стоимость.
+
+Введем понятие \textit{удельной стоимости} предмета $d_i$, то есть стоимости одного центнера $і$-го предмета в рублях: $d_1=10,9; d_2=20; d_3=10; d_4=16; d_5=13,3; d_6=12,2$.
+
+Если загрузить автомашину предметами с наибольшей удельной стоимостью - вторым, четвертым, пятым
+и шестым, — то сумма их весов окажется больше грузоподъемности автомашины $(7+15+12+9>32)$.
+
+Если же взять только 2-й, 4-й и 5-й предметы, то машина окажется недогруженной на 8 \textit{ц}. Можно тогда погрузить еще только один 3-й предмет, причем суммарная стоимость получится равной 440 руб., а машина будет недогружена на 2 \textit{ц}. Можем ли мы быть уверены, что не существует лучшего способа загрузки машины?
+
+Может быть, выгоднее оставить какой-либо из предметов с большей удельной стоимостью, но зато уве- личить общую стоимость путем пол- ного использования грузоподъемно-
+сти машины?
+
+Как видим, «в лоб» задачу решить трудно. А в реальных условиях, когда речь зачастую идет не о шести, а о шестидесяти предметах, и браться за нее нельзя, не вооружившись математическими методами. Переведем задачу на язык математики (как говорят, математизируем ситуацию).
+
+Пусть $x_i=1$, если $i$-й предмет погружается на автомашину, и $x_i=0$ в противном случае $(i=1\dots6)$. Тогда общая стоимость погруженных предметов равна $120x_1+140x_2+60x_3+80x_4+160x_5+110x_6$, а их общий вес в центнерах равен $11x_1+7x_2+6x_3+5x_4+12x_5+9x_6$.
+\newpage
+С помощью известных формул геометрии и тригонометрии из теоремы косинусов можно вывести некоторые соотношения, связывающие элементы любого треугольника.
+
+П р и м е р 2. \textit{Доказать, что стороны, углы и площадь S треугольника ABC удовлетворяют соотношению} \[\ctg A+\ctg B+\ctg C=\frac{a^2+b^2+c^2}{4S}.\]
+
+Р е ш е н и е. Из формулы $S=\frac{1}{2}bc\sin A$ находим, что $bc=\frac{2S}{\sin A}.$ Подставив формулу $a^2=b^2+c^2-2bc\cos A$ вместо $2bc$ выражение $\frac{4S}{\sin A}$, получим, соотношение \begin{equation}
+    a^2=b^2+c^2-4S\ctg A.
+\end{equation}
+Следовательно, \[\ctg A=\frac{b^2+c^2-a^2}{4S}\]
+
+П р и м е р 3. \textit{Доказать, что для любого треугольника справедливы неравенства}
+\[a) \sin \frac{A}{2}\leq\frac{a}{2\sqrt{bc}}\]\[b) \tg\frac{A}{2}\leq\frac{a}{2h_a},\]
+где \textit{a, b, c - стороны треугольника ABC и $h_a$ - высота, проведённая из вершины A.}
+\end{multicols}
+
+\newpage
+\resizebox{7cm}{!}{
+    \begin{tikzpicture}
+    \draw[very thick] (0,-6) -- (3,-3) -- (10,-3) -- (7,-6) -- (0,-6);
+    \draw (0.6,-6) node[above] {$S$};
+    \draw[dashed, very thick] (5.5,-4.5) -- (5.5,-8);
+    \draw[very thick, ->] (5.5,-4.5) -- (5.5, 0);
+    \draw[very thick, ->] (5.5,-4.5) -- (10,0);
+    \draw[very thick, dashed] (5.5,0) -- (10,0);
+    \draw (5,-0.5) node[above] {$B_1$};
+    \draw (10.3,-0.4) node[above] {$B$};
+    \draw[very thick] (5.5,-3.5) arc (90:45:1);
+    \draw (5.7,-4.2) node[above] {$\alpha$};
+    \end{tikzpicture}
+}
+
+\textbf{Рис. 1.}
+
+\newpage
+\begin{tikzpicture}
+    \draw[ultra thick] (0,8) -- (12,8) -- (12,0) -- (0,0) -- (0,8);
+    \draw[very thick] (8,2.7) -- (10.7,2.7) -- (10.7,0.01) -- (8,0.01) -- (8,2.7);
+    \draw (8,2.7) -- (9.8,2) -- (10.7,2.7);
+    \draw[very thick] (1,4) arc (160:199:6);
+    \draw[very thick] (2,3.8) arc (160:180:5);
+    \draw[very thick] (1.7,1.3) arc (190:201:7);
+    \draw[very thick] (1.7,1.3) arc (90:0:1.3);
+    \draw[very thick] (1.7,2.1) arc (90:2:2.2);
+    \draw[very thick] (0.5,3.6) arc (260:276:8);
+    \draw[very thick] (0.4,3) arc (260:278:8);
+    \draw[very thick] (0.5,3.6) -- (0.4,3);
+    \draw[very thick] (1,4) -- (2,3.8);
+    \draw[very thick] (2.7,3.5) -- (2.9,2.95);
+    \draw[thick, rotate=-20] (0.1,5.2) ellipse (0.5cm and 1cm);
+    \draw[rotate=-20] (0.1,5.6) ellipse (1cm and 0.2cm);
+    \filldraw[black] (2.2,4.6) circle (2pt);
+    \draw[thick] (2.3,4.75) -- (2.1,4.9);
+    \filldraw[black] (2.2,5.95) ellipse (3pt and 4pt);
+    \draw (2.32,4.35) arc (0:360:0.05);
+    \draw (1.8,4.3) -- (2.1,4.2);
+    \draw (2.8,3.2) -- (3.5,4.3);
+    \draw (2.7,3.5) -- (2.9,3.9);
+    \draw (3.5,4.3) -- (2.4,4.8);
+    \draw (2.4,4.8) -- (2.9,4.4);
+    \draw (2.9,4.4) arc (160:200:0.8);
+    \filldraw[black] (8,4.5) ellipse (90pt and 4pt);
+    \draw[very thick] (7,5.4) arc (30:-210:0.5);
+    \draw[very thick] (6.75,5.1) arc (0:360:0.2);
+    \draw[very thick] (10,5.4) arc (30:-210:0.5);
+    \draw[very thick] (9.75,5.1) arc (0:360:0.2);
+    \filldraw[black, very thick, rounded corners] (5.9,5.4) rectangle (8.9,5.7);
+    \draw[very thick, rounded corners] (5.3,5.8) rectangle (8.9,6.3);
+    \draw[very thick, rounded corners] (9,5.4) rectangle (10.5,6.3);
+    \draw[very thick, rounded corners] (9.2,6.3) -- (9,6.3) -- (9,7) -- (10.2,7) -- (10.5,6.3) -- (9.2,6.3);
+    \draw (10.5,6) arc (30:310:0.15);
+    \filldraw[black](8.5,1) arc (0:360:1);
+    \draw[ultra thick] (6,2.3) -- (6.8,0);
+    \draw[thick] (6,2.3) -- (5.2,0);
+    \draw[thick] (9.3,2.7) -- (9.3,3.3);
+    \draw[thick] (10.4,2.7) -- (10.4,3.3);
+    \draw[thick] (9.85,3.3) ellipse (15pt and 3pt);
+    \draw[thick] (6.2,1.8) -- (6.2,3);
+    \draw[thick] (7.7,1.8) -- (7.7,3);
+    \draw[thick] (6.95,3) ellipse (21pt and 5pt);
+    \draw[very thick] (4.7,0) -- (4.7,1.5);
+    \draw[very thick] (4.7,1.5) arc (120:86:2);
+    \draw[very thick] (4.7,1.5) arc (225:254:2);
+\end{tikzpicture}
+\end{document}
